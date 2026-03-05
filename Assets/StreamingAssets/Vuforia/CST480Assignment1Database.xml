@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<QCARConfig>
-  <Tracking>
-    <ImageTarget name="bowser" size="0.270000 0.189759" />
-    <ImageTarget name="plant" size="0.200000 0.173494" />
-  </Tracking>
-</QCARConfig>
