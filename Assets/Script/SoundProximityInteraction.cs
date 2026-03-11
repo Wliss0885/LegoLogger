@@ -18,6 +18,7 @@ public class SoundProximityInteraction : MonoBehaviour
 
     void Update()
     {
+        // this should make sure that no audio is played if either target is not visible
         if (!isThisTargetVisible || !isOtherTargetVisible)
         {
             if (audioSource.isPlaying)
@@ -26,23 +27,24 @@ public class SoundProximityInteraction : MonoBehaviour
             }
             return;
         }
-
+    
+        // takes the distance and if it is less than the max distance, sound is played
+        // otherwise sound is stopped
         float distance = Vector3.Distance(this.transform.position, target.transform.position);
 
         if (distance <= maxDistance)
         {
-            Debug.Log("Sound is playing");
             if (!audioSource.isPlaying)
                 audioSource.Play();
         }
         else
         {
-            Debug.Log("Sound is stopped");
             if (audioSource.isPlaying)
                 audioSource.Stop();
         }
     }
 
+    // these methods are just to ensure that the audio is only played if the target is visible
     public void OnFirstTargetFound()
     {
         isThisTargetVisible = true;

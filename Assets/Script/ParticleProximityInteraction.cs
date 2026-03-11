@@ -14,15 +14,18 @@ public class ParticleProximityInteraction : MonoBehaviour
 
     void Update()
     {
+        // this should make sure that no audio is played if either target is not visible
         if (!isThisTargetVisible || !isOtherTargetVisible)
         {
             particles.SetActive(false);
             return;
         }
         
+        // takes the distance and if it is less than the max distance, particled enabled
+        // otherwise particles disabled
         float distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
 
-        if (distanceToTarget < 0.5f)
+        if (distanceToTarget < 0.3f)
         {
             particles.SetActive(true);
         }
@@ -32,6 +35,7 @@ public class ParticleProximityInteraction : MonoBehaviour
         }
     }
     
+    // these methods are just to ensure that the audio is only played if the target is visible
     public void OnFirstTargetFound()
     {
         isThisTargetVisible = true;
