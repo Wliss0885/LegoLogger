@@ -21,6 +21,7 @@ public class LegoSetController : MonoBehaviour
     public void OnLegoSetFound()
     {
         Debug.Log($"{legoSetName} Set Found");
+        LegoLoggerManager.instance.AddToDictionary(legoSetName, legoSet);
     }
 
     public void OnLegoSetLost()

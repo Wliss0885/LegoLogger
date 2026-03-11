@@ -10,6 +10,7 @@ public class ParticleProximityInteraction : MonoBehaviour
 
     void Start()
     {
+        
     }
 
     void Update()
