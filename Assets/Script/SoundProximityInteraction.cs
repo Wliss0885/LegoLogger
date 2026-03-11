@@ -24,12 +24,19 @@ public class SoundProximityInteraction : MonoBehaviour
         if (distance <= maxDistance)
         {
             Debug.Log("Sound is playing");
-            audioSource.Play();
+            if (!audioSource.isPlaying)
+                audioSource.Play();
         }
         else
         {
             Debug.Log("Sound is stopped");
-            audioSource.Stop();
+            if (audioSource.isPlaying)
+                audioSource.Stop();
         }
+    }
+    
+    public void OnTargetLost()
+    {
+        audioSource.Stop();
     }
 }
