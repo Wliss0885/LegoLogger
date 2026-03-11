@@ -20,11 +20,11 @@ public class LegoSetController : MonoBehaviour
 
     public void OnLegoSetFound()
     {
-        
+        Debug.Log($"{legoSetName} Set Found");
     }
 
     public void OnLegoSetLost()
     {
-        
+        Debug.Log($"{legoSetName} Set Lost");
     }
 }
