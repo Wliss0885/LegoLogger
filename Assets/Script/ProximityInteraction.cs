@@ -14,11 +14,11 @@ public class ProximityInteraction : MonoBehaviour
     {
         float distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
 
-        if (distanceToTarget < 1 && particles.activeSelf == false)
+        if (distanceToTarget < 0.5 && particles.activeSelf == false)
         {
             particles.SetActive(true);
         }
-        else if (distanceToTarget > 1 && particles.activeSelf == true)
+        else if (distanceToTarget > 0.5 && particles.activeSelf == true)
         {
             particles.SetActive(false);
         }
