@@ -1,24 +1,33 @@
 using UnityEngine;
+using Vuforia;
 
 public class SoundProximityInteraction : MonoBehaviour
 {
-    // This code changes the sphere's color based on how far it is from the other image target
     public float maxDistance = 0.5f;
     public GameObject target;
     public AudioClip audioClip;
     private AudioSource audioSource;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private bool isThisTargetVisible = false;
+    private bool isOtherTargetVisible = false;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = audioClip;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // gives a distance between the two objects
+        if (!isThisTargetVisible || !isOtherTargetVisible)
+        {
+            if (audioSource.isPlaying)
+            {
+                Debug.Log("Sound is stopped - target out of frame");
+                audioSource.Stop();
+            }
+            return;
+        }
+
         float distance = Vector3.Distance(this.transform.position, target.transform.position);
 
         if (distance <= maxDistance)
@@ -34,9 +43,26 @@ public class SoundProximityInteraction : MonoBehaviour
                 audioSource.Stop();
         }
     }
-    
+
+    public void OnTargetFound()
+    {
+        isThisTargetVisible = true;
+    }
+
     public void OnTargetLost()
     {
+        isThisTargetVisible = false;
+        audioSource.Stop();
+    }
+
+    public void OnOtherTargetFound()
+    {
+        isOtherTargetVisible = true;
+    }
+
+    public void OnOtherTargetLost()
+    {
+        isOtherTargetVisible = false;
         audioSource.Stop();
     }
 }
