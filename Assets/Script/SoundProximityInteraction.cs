@@ -22,7 +22,6 @@ public class SoundProximityInteraction : MonoBehaviour
         {
             if (audioSource.isPlaying)
             {
-                Debug.Log("Sound is stopped - target out of frame");
                 audioSource.Stop();
             }
             return;
@@ -44,23 +43,23 @@ public class SoundProximityInteraction : MonoBehaviour
         }
     }
 
-    public void OnTargetFound()
+    public void OnFirstTargetFound()
     {
         isThisTargetVisible = true;
     }
 
-    public void OnTargetLost()
+    public void OnFirstTargetLost()
     {
         isThisTargetVisible = false;
         audioSource.Stop();
     }
 
-    public void OnOtherTargetFound()
+    public void OnSecondTargetFound()
     {
         isOtherTargetVisible = true;
     }
 
-    public void OnOtherTargetLost()
+    public void OnSecondTargetLost()
     {
         isOtherTargetVisible = false;
         audioSource.Stop();
