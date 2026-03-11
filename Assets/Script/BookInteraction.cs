@@ -1,9 +1,7 @@
 using UnityEngine;
 
-public class LinkInteraction : MonoBehaviour
+public class BookInteraction : MonoBehaviour
 {
-    public string url;
-    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,9 +13,9 @@ public class LinkInteraction : MonoBehaviour
     {
         
     }
-
+    
     void OnMouseDown()
     {
-        Application.OpenURL(url);
+        Debug.Log("Book clicked");
     }
 }
