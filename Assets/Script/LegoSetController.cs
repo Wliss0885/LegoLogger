@@ -4,7 +4,7 @@ using UnityEngine;
 public class LegoSetController : MonoBehaviour
 {
     public String legoSetName;
-    public GameObject legoSet;
+    public Sprite legoSetImage;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,7 +21,7 @@ public class LegoSetController : MonoBehaviour
     public void OnLegoSetFound()
     {
         Debug.Log($"{legoSetName} Set Found");
-        LegoLoggerManager.instance.AddToDictionary(legoSetName, legoSet);
+        LegoLoggerManager.instance.AddToDictionary(legoSetName, legoSetImage);
     }
 
     public void OnLegoSetLost()

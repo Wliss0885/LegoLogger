@@ -5,7 +5,9 @@ using UnityEngine;
 public class LegoLoggerManager : MonoBehaviour
 {
     public static LegoLoggerManager instance;
-    public Dictionary<String, GameObject> legoSetList = new Dictionary<String, GameObject>();
+    public Dictionary<String, Sprite> legoSetList = new Dictionary<String, Sprite>();
+    public GameObject legoEntryPrefab;
+    public Transform uiParent;
 
     void Awake()
     {
@@ -28,9 +30,18 @@ public class LegoLoggerManager : MonoBehaviour
         
     }
 
-    public void AddToDictionary(String legoSetName, GameObject legoSet)
+    public void AddToDictionary(String legoSetName, Sprite legoSetImage)
     {
-        if (!legoSetList.ContainsKey(legoSetName)) legoSetList.Add(legoSetName, legoSet);
-        else Debug.Log("Lego set already there");
+        if (!legoSetList.ContainsKey(legoSetName))
+        {
+            legoSetList.Add(legoSetName, legoSetImage);
+            GameObject entry = Instantiate(legoEntryPrefab, uiParent);
+            LegoSetEntry uiEntry = entry.GetComponent<LegoSetEntry>();
+            uiEntry.Setup(legoSetName, legoSetImage);
+        }
+        else
+        {
+            Debug.Log("Lego set already there");
+        }
     }
 }
