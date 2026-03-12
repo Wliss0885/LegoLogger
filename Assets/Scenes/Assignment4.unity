@@ -8314,7 +8314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 129c858fea86146cab6376c550cab9e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  legoSetName: 'The Lion King: Simba'
+  legoSetName: Young Simba the Lion King
   legoSetImage: {fileID: 21300000, guid: 64bc807d44a4347068300903d4c960da, type: 3}
 --- !u!114 &1705886827
 MonoBehaviour:
