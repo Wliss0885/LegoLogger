@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class LegoSetController : MonoBehaviour
 {
+    // this is how we make sure that each controller is different 
     public String legoSetName;
     public Sprite legoSetImage;
     

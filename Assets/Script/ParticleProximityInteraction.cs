@@ -3,16 +3,21 @@ using System.Collections.Generic;
 
 public class ParticleProximityInteraction : MonoBehaviour
 {
+    // target object
     public GameObject target;
+    // particles system for the interaction
     public GameObject particles;
+    // booleans to check if either target is visible
     private bool isThisTargetVisible = false;
     private bool isOtherTargetVisible = false;
 
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         
     }
 
+    // Update is called once per frame
     void Update()
     {
         // this should make sure that no audio is played if either target is not visible

@@ -3,9 +3,12 @@ using UnityEngine;
 
 public class BookInteraction : MonoBehaviour
 {
+    // models for open book and closed book
     public GameObject openBook;
     public GameObject closedBook;
+    // canvas for the scrollbox
     public GameObject canvas;
+    // flag to check if the book is clicked
     private Boolean isClicked = false;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -22,6 +25,7 @@ public class BookInteraction : MonoBehaviour
     
     void OnMouseDown()
     {
+        // just to open and close the book and show the canvas based on the state of the book
         if (!isClicked)
         {
             openBook.SetActive(true);

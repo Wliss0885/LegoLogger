@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class LegoLoggerManager : MonoBehaviour
 {
+    // singleton pattern
     public static LegoLoggerManager instance;
+    // dictionary of lego sets
     public Dictionary<String, Sprite> legoSetList = new Dictionary<String, Sprite>();
+    // prefab for the scrollbox
     public GameObject legoEntryPrefab;
+    // where the prefabs are going to be placed
     public Transform uiParent;
 
     void Awake()
@@ -32,9 +36,11 @@ public class LegoLoggerManager : MonoBehaviour
 
     public void AddToDictionary(String legoSetName, Sprite legoSetImage)
     {
+        // check if the lego set is already in the dictionary
         if (!legoSetList.ContainsKey(legoSetName))
         {
             legoSetList.Add(legoSetName, legoSetImage);
+            // add a LegoSetEntry object to the scrollbox
             GameObject entry = Instantiate(legoEntryPrefab, uiParent);
             LegoSetEntry uiEntry = entry.GetComponent<LegoSetEntry>();
             uiEntry.Setup(legoSetName, legoSetImage);

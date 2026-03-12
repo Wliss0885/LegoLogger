@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class LegoSetEntry : MonoBehaviour
 {
+    // UI elements for the prefab
     public Image legoSetImage;
     public TMP_Text legoSetName;
     
